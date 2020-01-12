@@ -22,63 +22,61 @@ public class sort {
         Scanner in= new Scanner(System.in);
         System.out.println("Enter the length of arrays: ");
         int s = in.nextInt();
-        //for(int s=64; s<=1024; s=s*2){
-            System.out.println("Array Length is "+s);
-            int [] A1 = new int [s];
-            int [] A2 = new int [s];
-            for(int i=0; i<s; i++){
-                int a = gen();
+        int [] A1 = new int [s];
+        int [] A2 = new int [s];
+        for(int i=0; i<s; i++){
+            int a = gen();
            
-                A1[i] = a;
-                A2[i] = a;
+            A1[i] = a;
+            A2[i] = a;
+        }
+        System.out.println("Array1:");
+        
+
+
+
+        for(int i=0; i<A1.length; i++){
+            System.out.print(A1[i]+", ");
+        }
+        System.out.println();
+        System.out.println("Array2:");
+        for(int i=0; i<A2.length; i++){
+            System.out.print(A2[i]+", ");
+        }
+        //insertion sort of A1 
+        final long startTime = System.nanoTime();
+        int j;
+        for(int i=1; i<A1.length; i++){
+            j=i;
+            while(j>0 && A1[j-1]>A1[j]){
+                int c= A1[j-1];
+                A1[j-1] = A1[j];
+                A1[j] = c;
+                j = j-1;
             }
-            System.out.println("Array1:");
-            for(int i=0; i<A1.length; i++){
-                System.out.print(A1[i]+", ");
-            }
-            System.out.println();
-            System.out.println("Array2:");
-            for(int i=0; i<A2.length; i++){
-                System.out.print(A2[i]+", ");
-            }
-            //insertion sort of A1 
-            final long startTime = System.nanoTime();
-            int j;
-            for(int i=1; i<A1.length; i++){
-                j=i;
-                while(j>0 && A1[j-1]>A1[j]){
-                    int c= A1[j-1];
-                    A1[j-1] = A1[j];
-                    A1[j] = c;
-                    j = j-1;
-                }
-                
-            }
-            final long duration = System.nanoTime() - startTime;
             
-            System.out.println();
-            System.out.println("Array1 after insertion sorting:");
-            for(int i=0; i<A1.length; i++){
-                System.out.print(A1[i]+", ");
-            }
-            System.out.println();
-            System.out.println("Total Time taken by insersion sort: "+duration);
-            
-            //merge sort of A2
-            final long stime = System.nanoTime();
-            A2=mergesort(A2);
-            final long durationn = System.nanoTime() - stime;
-            System.out.println("Array2 after merge soting");
-            for(int i=0; i<A2.length; i++){
-                System.out.print(A2[i]+", ");
-            }
-            System.out.println();
-            System.out.println("Total Time taken by merge sort: "+durationn);
-            System.out.println("***************************************************************************");
-            
-            System.out.println("***************************************************************************");
-            System.out.println();
-        //}
+        }
+        final long duration = System.nanoTime() - startTime;
+        
+        System.out.println();
+        System.out.println("Array1 after insertion sorting:");
+        for(int i=0; i<A1.length; i++){
+            System.out.print(A1[i]+", ");
+        }
+        System.out.println();
+        System.out.println("Total Time taken by insersion sort: "+duration);
+        
+        //merge sort of A2
+        final long stime = System.nanoTime();
+        A2=mergesort(A2);
+        final long durationn = System.nanoTime() - stime;
+        System.out.println("Array2 after merge soting");
+        for(int i=0; i<A2.length; i++){
+            System.out.print(A2[i]+", ");
+        }
+        System.out.println();
+        System.out.println("Total Time taken by merge sort: "+durationn);
+        
        
     }
     
@@ -152,4 +150,3 @@ public class sort {
     
     
 }
-50
